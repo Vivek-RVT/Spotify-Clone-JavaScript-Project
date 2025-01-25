@@ -14,7 +14,8 @@ function formatTime(time) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 async function songsfetch(folder) {
-    const url = `http://127.0.0.1:3000/${folder}/`; // Correct this line if needed
+    const url = `https://vivek-rvt.github.io/spotify-clone/${folder}/`;
+; // Correct this line if needed
 
     try {
         let response = await fetch(url);
@@ -116,7 +117,7 @@ function playMusic(track, pause = false) {
     }
 }
 async function albumGen() {
-    const albumfetch = 'http://127.0.0.1:3000/songs/';
+    const albumfetch = 'https://vivek-rvt.github.io/spotify-clone/songs/';
 
     try {
         const albumsdata = await fetch(albumfetch);
@@ -131,7 +132,7 @@ async function albumGen() {
         for (let element of album_names) {
             if (element.href.includes("/songs/")) {
                 const folder = element.href.split("/").slice(-2)[0]; // Extract folder name
-                const infoResponse = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
+                const infoResponse = await fetch(`https://vivek-rvt.github.io/spotify-clone/songs/${folder}/info.json`);
                 let albumslist = await infoResponse.json();
 
                 // Add album card
@@ -186,7 +187,7 @@ document.querySelector(".add-library").addEventListener("click",()=>{
 })
 
 async function popular_songs() {
-const popu_songs = fetch(`http://127.0.0.1:3000/songs/`)
+const popu_songs = fetch(`https://vivek-rvt.github.io/spotify-clone/songs/`)
 try{
 
 }catch(error){

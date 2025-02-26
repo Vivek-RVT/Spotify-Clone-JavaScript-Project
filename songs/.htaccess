@@ -1,2 +1,14 @@
-Option +Indexes
+# Enable necessary MIME types for audio files
+AddType audio/mpeg .mp3
+AddType audio/ogg .ogg
+AddType audio/wav .wav
+AddType audio/mp4 .m4a
+
+# Allow directory listing (optional, if you want users to see files)
+Options +Indexes
 IndexOptions FancyIndexing NameWidth=* DescriptionWidth=*
+
+# Fix CORS issues if loading songs from an external source
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
